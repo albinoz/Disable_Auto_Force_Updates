@@ -4,7 +4,7 @@ clear
 
 echo adam 2021-09
 echo Tested on "10.15.7 < 11.6"
-echo Disable Auto Force Updates
+echo Disable Auto System & AppStore Updates 
 sudo echo
 
 echo Disable AppStore Update by Session to 2029 

@@ -4,7 +4,7 @@
 clear
 
 tput bold ; echo adam ; tput sgr0
-tput bold ; echo Tested on "10.15.7 < 11.6" ; tput sgr0
+tput bold ; echo Tested on "10.14 < 11" ; tput sgr0
 
 tput bold ; echo ; echo "macOS $(sw_vers -productVersion) |$(system_profiler SPHardwareDataType | grep Memory | cut -d ':' -f2) |$(system_profiler SPHardwareDataType | grep Cores: | cut -d ':' -f2) Cores |$(system_profiler SPHardwareDataType | grep Speed | cut -d ':' -f2)"; tput sgr0
 
@@ -14,10 +14,10 @@ tput bold ; echo ; echo "Disable macOS Auto System & AppStore Updates" ; tput sg
 OSX=$(sw_vers -productVersion)
 OSXMajor=$(sw_vers -productVersion | cut -d'.' -f1)
 if [[ "$OSXMajor" -ge 11 ]]; then OSXV=$(echo "$OSXMajor"+5 | bc) ; else OSXV=$(sw_vers -productVersion | cut -d'.' -f2) ; fi
-if [ "$OSXV" -ge 15 ] ; then echo macOS "$OSX" Supported > /dev/null ; else echo ; echo macOS "$OSX" not Supported && exit ; fi
+if [ "$OSXV" -ge 14 ] ; then echo macOS "$OSX" Supported > /dev/null ; else echo ; echo macOS "$OSX" not Supported && exit ; fi
 
 # Test Password
-if sudo -S -k echo '🔒 '| grep '🔒 ' > /dev/null  ; then
+if sudo echo '🔒 '| grep '🔒 ' > /dev/null  ; then
 	echo '🔓 ' Good Password - You Shall Pass
 else
 	echo '🔒 ' Wrong Password - You Shall Not Pass !
@@ -31,8 +31,8 @@ tput bold ; echo Disable AppStore Update by Session to 2029 ; tput sgr0
 echo
 
 tput bold ; echo Disable Schedule Update ; tput sgr0
-sudo /usr/sbin/softwareupdate --schedule off
-/usr/sbin/softwareupdate --schedule
+sudo /usr/sbin/softwareupdate --schedule off > /dev/null
+sudo /usr/sbin/softwareupdate --schedule
 echo
 
 tput bold ; echo Disable AutoUpdate Commerce ; tput sgr0

@@ -1,5 +1,4 @@
 #!/bin/bash
-# 2022-01
 
 clear
 
@@ -7,10 +6,11 @@ OSX=$(sw_vers -productVersion)
 OSXMajor=$(sw_vers -productVersion | cut -d'.' -f1)
 Computer="macOS $(sw_vers -productVersion) |$(system_profiler SPHardwareDataType | grep Memory | cut -d ':' -f2) |$(system_profiler SPHardwareDataType | grep Cores: | cut -d ':' -f2) Cores |$(system_profiler SPHardwareDataType | grep Speed | cut -d ':' -f2)"
 
-tput bold ; echo adam ; tput sgr0
-tput bold ; echo $Computer ; tput sgr0
+tput bold ; echo "adam | 2022-01" ; tput sgr0
 
-tput bold ; echo ; echo "🌙 Disable Auto macOS System & AppStore Updates" ; tput sgr0
+tput bold ; echo ; echo $Computer ; tput sgr0
+
+tput bold ; echo ; echo "🌙 Disable macOS System & AppStore Updates" ; tput sgr0
 
 # Check Minimum System
 if [[ "$OSXMajor" -ge 11 ]]; then OSXV=$(echo "$OSXMajor"+5 | bc) ; else OSXV=$(sw_vers -productVersion | cut -d'.' -f2) ; fi
@@ -37,7 +37,7 @@ sudo /usr/sbin/softwareupdate --schedule off > /dev/null
 sudo /usr/sbin/softwareupdate --schedule
 echo
 
-tput bold ; echo Disable Commerce Updates  ; tput sgr0
+tput bold ; echo Disable Commerce Updates ; tput sgr0
 sudo /usr/bin/defaults write /Library/Preferences/com.apple.commerce.plist AutoUpdate -bool FALSE
 sudo /usr/bin/defaults read /Library/Preferences/com.apple.commerce.plist AutoUpdate
 echo

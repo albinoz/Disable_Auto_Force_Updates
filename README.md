@@ -6,5 +6,5 @@
 #### =-> Download & Execute :
 ```
 cd /tmp && git clone https://github.com/albinoz/Disable_Auto_Force_Updates.git && \
-chmod 755 /tmp/Disable_Auto_Force_Updates/Disable_Auto_Force_Updates.command  && \
+chmod 755 /tmp/Disable_Auto_Force_Updates/Disable_Auto_Force_Updates.command  ; \
 /tmp/Disable_Auto_Force_Updates/Disable_Auto_Force_Updates.command
